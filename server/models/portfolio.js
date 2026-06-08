@@ -44,6 +44,18 @@ const PortfolioSchema = new mongoose.Schema(
             startYear:Number,
             endYear:Number
         }],
+        resume:{
+            type:String
+        },
+        status: {
+            type: String,
+            enum: ["draft", "published"],
+            default: "draft"
+        },
+        slug: {
+            type: String,
+            unique: true
+        },
         experience:[{
             company:String,
             role:String,
@@ -52,9 +64,14 @@ const PortfolioSchema = new mongoose.Schema(
         }],
         achievements:[String],
 
+        theme: {
+            primaryColor: String,
+            secondaryColor: String,
+            backgroundColor: String
+        },
         template:{
             type:String,
-            default:"minimal"
+            default:""
         },
     },
     {timestamps:true}

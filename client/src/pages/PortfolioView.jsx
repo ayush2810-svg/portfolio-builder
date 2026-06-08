@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../services/api";
-import Minimal from "../template/Minimal";
-import Modern from "../template/Modern";
-import Professional from "../template/Professional";
+import neo from "../template/modern/Neo";
 
 function PortfolioView() {
   const { id } = useParams();
@@ -44,12 +42,8 @@ function PortfolioView() {
     contact:portfolio.contact || {}
   };
   switch (portfolio.template) { 
-    case "minimal":
-      return <Minimal {...safedata} />;
-    case "modern":
-      return <Modern {...safedata} />;
-      case  "professional":
-      return <Professional {...safedata} />;
+    case "neo":
+      return <Neo {...safedata} />;
       default:
         return <div>Unknown template</div>;
   }

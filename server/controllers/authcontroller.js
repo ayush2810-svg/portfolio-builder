@@ -28,6 +28,7 @@ catch(error){
     res.status(500).json({error:error.message});
 }
 };
+
 exports.loginUser = async(req,res) => {
     try{
         const {username,password} = req.body;
@@ -49,10 +50,10 @@ exports.loginUser = async(req,res) => {
             message:"Login successful",
             token,
             User:{
-                id:user._id,
-                name:user.name,
-                email:user.email,
-                username:user.username
+                id:User._id,
+                name:User.name,
+                email:User.email,
+                username:User.username
             }
         });
         }catch(error){
